@@ -1,8 +1,10 @@
 ---
-title: "R Notebook"
+title: "HW_1- DATA VISUALIZATION"
+by: Jack Wright
 output:
-  html_document: default
+  pdf_document: default
   html_notebook: default
+  html_document: default
 ---
 
 **Principles of Data Visualization and Introduction to ggplot2**
@@ -90,7 +92,7 @@ Lets dig in on the state with the 3rd most companies in the data set. Imagine yo
 #find 3rd highest state
 
 state_3<-as.character(df_state$State)[3]
-df_state_3<-inc%>%filter(State==state_3)%>%na.omi
+df_state_3<-inc%>%filter(State==state_3)%>%na.omit()
 
 ggplot(df_state_3, aes(x=log(Employees),y=reorder(factor(Industry),Employees, FUN=median)))+geom_boxplot()+theme_tufte(base_size = 11, base_family = "serif", ticks = TRUE)+labs(x='log(Employees)',y='Industry',subtitle =paste('plot of Employees by industry in',state_3))
 ```
